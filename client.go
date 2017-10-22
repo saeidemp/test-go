@@ -17,7 +17,7 @@ type Client struct {
 }
 
 // Create a new ghasedakapi struct.
-func NewClient(apiKey string) *Ghasedakapi {
+func NewClient(apiKey string) *Client {
 	return NewHttpClient(apiKey, nil)
 }
 
