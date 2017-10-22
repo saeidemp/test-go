@@ -26,7 +26,7 @@ func (m *MessageService) Send(sender string, receptor []string, message string) 
 }
 
 //CreateSend ...
-func (m *MessageService) CreateSend(v url.Values) ([]Message, error) {
+func (m *MessageService) CreateSend(v url.Values) (string, error) {
 	res := new(MessageResult)
 	err := m.client.Execute("", v, res)
 	return res.Return.Message, err
