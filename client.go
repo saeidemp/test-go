@@ -4,7 +4,7 @@ import(
 	"net/http"
 	"net/url"
 	"strings"
-		"encoding/json"
+	"encoding/json"
 )
 
 const(
@@ -33,8 +33,7 @@ func NewHttpClient(apiKey string, HTTPClient *http.Client) *Client {
 func (c *Client) Execute(urlStr string, b url.Values, v interface{}) error {
 	body := strings.NewReader(b.Encode())
 	ul, _ := url.Parse(urlStr)
-	u := c.BaseUrl.ResolveReference(ul)
-	req, _ := http.NewRequest("POST", u.String(), body)
+	req, _ := http.NewRequest("POST", c.BaseUrl, body)
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Accept-Charset", "utf-8")
