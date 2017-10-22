@@ -37,7 +37,7 @@ func (c *Client) Execute(urlStr string, b url.Values, v interface{}) error {
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Accept-Charset", "utf-8")
-	resp, err := c.BaseClient.Do(req)
+	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
 		return err
 	}

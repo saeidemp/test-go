@@ -7,6 +7,10 @@ import (
 type Message struct {
 	Message    string            `json:"message"`
 }
+type MessageResult struct {
+	*Return
+	Entries []Message `json:"entries"`
+}
 //Send ...
 func (m *MessageService) Send(sender string, receptor []string, message string) ([]Message, error) {
 	v := url.Values{}
