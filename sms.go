@@ -18,7 +18,7 @@ type Return struct {
 	Message string `json:"message"`
 }
 //Send ...
-func (m *MessageService) Send(sender string, receptor []string, message string) ([]Message, error) {
+func (m *MessageService) Send(sender string, receptor []string, message string) (string, error) {
 	v := url.Values{}
 	v.Set("receptor", ToString(receptor))
 	v.Set("message", message)
