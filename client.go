@@ -32,7 +32,6 @@ func NewHttpClient(apiKey string, HTTPClient *http.Client) *Client {
 
 func (c *Client) Execute(urlStr string, b url.Values, v interface{}) error {
 	body := strings.NewReader(b.Encode())
-	ul, _ := url.Parse(urlStr)
 	req, _ := http.NewRequest("POST", c.BaseUrl, body)
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Accept", "application/json")
