@@ -2,6 +2,8 @@ package ghasedakapi
 
 import (
 	"net/url"
+	"strings"
+	"fmt"
 )
 
 type Message struct {
