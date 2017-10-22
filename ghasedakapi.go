@@ -16,7 +16,7 @@ func New(apikey string) *Ghasedakapi {
 
 //NewWithClient ...
 func NewWithClient(client *Client) *Ghasedakapi {
-	k := &Kavenegar{}
+	k := &Ghasedakapi{}
 	k.Message = NewMessageService(client)
 	return k
 }

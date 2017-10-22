@@ -21,3 +21,8 @@ func (m *MessageService) CreateSend(v url.Values) ([]Message, error) {
 	err := m.client.Execute("", v, res)
 	return res.Message, err
 }
+
+//ToString ...
+func ToString(i interface{}) string {
+	return strings.Trim(strings.Replace(fmt.Sprint(i), " ", ",", -1), "[]")
+}

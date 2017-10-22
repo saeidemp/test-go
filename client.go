@@ -2,6 +2,9 @@ package ghasedakapi
 
 import(
 	"net/http"
+	"net/url"
+	"strings"
+		"encoding/json"
 )
 
 const(
@@ -14,7 +17,7 @@ type Client struct {
 }
 
 // Create a new ghasedakapi struct.
-func NewClient(apiKey string) *ghasedakapi {
+func NewClient(apiKey string) *Ghasedakapi {
 	return NewHttpClient(apiKey, nil)
 }
 
@@ -23,14 +26,14 @@ func NewHttpClient(apiKey string, HTTPClient *http.Client) *Client {
 	if HTTPClient == nil {
 		HTTPClient = http.DefaultClient
 	}
-	return &ghasedakapi{apiKey,baseUrl, HTTPClient}
+	return &Ghasedakapi{apiKey,baseUrl, HTTPClient}
 }
 
 
 func (c *Client) Execute(urlStr string, b url.Values, v interface{}) error {
 	body := strings.NewReader(b.Encode())
 	ul, _ := url.Parse(urlStr)
-	u := c.BaseURL.ResolveReference(ul)
+	u := c.BaseUrl.ResolveReference(ul)
 	req, _ := http.NewRequest("POST", u.String(), body)
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Accept", "application/json")
