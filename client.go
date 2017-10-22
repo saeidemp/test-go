@@ -26,7 +26,7 @@ func NewHttpClient(apiKey string, HTTPClient *http.Client) *Client {
 	if HTTPClient == nil {
 		HTTPClient = http.DefaultClient
 	}
-	return &Ghasedakapi{apiKey,baseUrl, HTTPClient}
+	return &Client{apiKey,baseUrl, HTTPClient}
 }
 
 
