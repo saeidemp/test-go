@@ -11,6 +11,10 @@ type MessageResult struct {
 	*Return
 	Entries []Message `json:"entries"`
 }
+type Return struct {
+	Status  int    `json:"status"`
+	Message string `json:"message"`
+}
 //Send ...
 func (m *MessageService) Send(sender string, receptor []string, message string) ([]Message, error) {
 	v := url.Values{}
