@@ -29,7 +29,7 @@ func (m *MessageService) Send(sender string, receptor []string, message string) 
 func (m *MessageService) CreateSend(v url.Values) ([]Message, error) {
 	res := new(MessageResult)
 	err := m.client.Execute("", v, res)
-	return res.Message, err
+	return res.Return.Message, err
 }
 
 //ToString ...
